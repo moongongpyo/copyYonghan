@@ -1,4 +1,5 @@
 package hello.core;
+
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepository;
@@ -13,19 +14,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderService -> new MemoryMemberRepository()
+
     @Bean
-    public MemberService memberService(){
+    public MemberService memberService() {
         return new MemberServiceImpl(MemberRepository());
-    }
-    @Bean
-    public OrderService orderService(){
-        return new OrderServiceImpl(MemberRepository(), DiscountPolicy());
     }
 
     @Bean
     public MemberRepository MemberRepository() {
+
         return new MemoryMemberRepository();
     }
+
+    @Bean
+    public OrderService orderService() {
+        return new OrderServiceImpl(
+                MemberRepository(),
+                DiscountPolicy());
+    }
+
 
     @Bean
     public DiscountPolicy DiscountPolicy() {
