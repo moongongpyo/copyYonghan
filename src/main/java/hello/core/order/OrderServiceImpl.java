@@ -54,7 +54,7 @@ public class OrderServiceImpl implements OrderService {
     //public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("subDiscountPolicy") DiscountPolicy discountPolicy) {
     //public OrderServiceImpl(MemberRepository memberRepository, @SubDiscountPolicy DiscountPolicy discountPolicy) {
     //Primary로 mainDiscountPolicy 주입
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+       public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
